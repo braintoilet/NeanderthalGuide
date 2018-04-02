@@ -12,13 +12,14 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MuseumFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
     @BindView(R.id.museum_list)
-    private ListView listView;
+    ListView listView;
 
     public MuseumFragment() {
         // Required empty public constructor
@@ -32,15 +33,17 @@ public class MuseumFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_museum, container, false);
+        View view = inflater.inflate(R.layout.fragment_museum, container, false);
+
+        ButterKnife.bind(this, view);
+        listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
+
+        return view;
     }
 
     @Override
@@ -62,8 +65,11 @@ public class MuseumFragment extends Fragment {
     private ArrayList<LocationInfo> getInfo() {
         ArrayList<LocationInfo> list = new ArrayList<>();
 
+        list.add(new LocationInfo("Traces of humanity", "The exhibition shows the traces of humanity, from their long way from the savannas, " +
+                "to the capital cities of the present."));
+        list.add(new LocationInfo("Neanderthal's", "The main emphasis lies on the neanderthals."));
         list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
+
+        return list;
     }
 }

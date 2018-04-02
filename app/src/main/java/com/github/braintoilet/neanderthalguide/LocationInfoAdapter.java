@@ -46,7 +46,7 @@ public class LocationInfoAdapter extends ArrayAdapter<LocationInfo> {
         caption.setText(currentLocationInfo.getInfoCaption());
 
         TextView text = listItemView.findViewById(R.id.list_item_text);
-        caption.setText(currentLocationInfo.getInfoText());
+        text.setText(currentLocationInfo.getInfoText());
 
         ImageView imageView = listItemView.findViewById(R.id.list_item_image);
 

@@ -6,15 +6,9 @@ import android.widget.ImageView;
 import butterknife.BindView;
 
 public class LocationInfo {
-
-    @BindView(R.id.list_item_caption)
-    private String infoCaption;
-
-    @BindView(R.id.list_item_text)
-    private String infoText;
-
-    @BindView(R.id.list_item_image)
-    private ImageView infoImage;
+    String infoCaption;
+    String infoText;
+    ImageView infoImage;
 
     public LocationInfo(String caption, String info) {
         infoCaption = caption;
@@ -36,7 +30,6 @@ public class LocationInfo {
     public String getInfoText() {
         return infoText;
     }
-
 
     public ImageView getInfoImage() {
         return infoImage;

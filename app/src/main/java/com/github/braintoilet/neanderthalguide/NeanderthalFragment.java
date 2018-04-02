@@ -12,12 +12,13 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class NeanderthalFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     @BindView(R.id.neanderthal_list)
-    private ListView listView;
+    ListView listView;
 
     public NeanderthalFragment() {
         // Required empty public constructor
@@ -31,15 +32,17 @@ public class NeanderthalFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_neanderthal, container, false);
+        View view = inflater.inflate(R.layout.fragment_neanderthal, container, false);
+
+        ButterKnife.bind(this, view);
+        listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
+
+        return view;
     }
 
     @Override
