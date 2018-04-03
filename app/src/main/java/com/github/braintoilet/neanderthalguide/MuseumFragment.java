@@ -65,7 +65,8 @@ public class MuseumFragment extends Fragment {
     private ArrayList<LocationInfo> getInfo() {
         ArrayList<LocationInfo> list = new ArrayList<>();
 
-        list.add(new LocationInfo("Traces of humanity", "The exhibition shows the traces of humanity, from their long way from the savannas, " +
+        list.add(new LocationInfo("Traces of humanity",
+                "The exhibition shows the traces of humanity, from their long way from the savannas, " +
                 "to the capital cities of the present."));
         list.add(new LocationInfo("Neanderthal's", "The main emphasis lies on the neanderthals."));
         list.add(new LocationInfo("", ""));
