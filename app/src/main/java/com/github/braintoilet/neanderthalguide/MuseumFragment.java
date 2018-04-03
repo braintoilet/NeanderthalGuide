@@ -68,9 +68,10 @@ public class MuseumFragment extends Fragment {
         list.add(new LocationInfo("Traces of humanity",
                 "The exhibition shows the traces of humanity, from their long way from the savannas, " +
                 "to the capital cities of the present."));
-        list.add(new LocationInfo("Neanderthal's", "The main emphasis lies on the neanderthals."));
-        list.add(new LocationInfo("", ""));
-
+        list.add(new LocationInfo("Neanderthal's", "The main emphasis lies on the neanderthals. \n" +
+                "Neanderthals are considered either a distinct species, Homo neanderthalensis, or more rarely a subspecies of Homo sapiens (H. s. neanderthalensis).\n" +
+                " A 2010 report found that non-Africans and Neanderthals share 99.7% of their DNA and are hence " +
+                "much more closely related than to their closest non-human relative, the chimpanzee (98.8%)."));
         return list;
     }
 }
