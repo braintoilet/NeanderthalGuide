@@ -1,59 +1,89 @@
 package com.github.braintoilet.neanderthalguide;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class LocationInfoAdapter extends ArrayAdapter<LocationInfo> {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    ArrayList<LocationInfo> objectList;
+public class LocationInfoAdapter extends BaseAdapter {
+    private final LayoutInflater inflater;
+    ArrayList<LocationInfo> mLocationInfoList;
 
-    public LocationInfoAdapter(Context context, ArrayList<LocationInfo> objects) {
-        super(context, 0, objects);
-        objectList = objects;
+    public LocationInfoAdapter(Context context, ArrayList<LocationInfo> list) {
+        this.inflater = LayoutInflater.from(context);
+        mLocationInfoList = list;
     }
 
     @Override
     public int getCount() {
-        return objectList.size();
+        return mLocationInfoList.size();
+    }
+
+    /**
+     * Get the data item associated with the specified position in the data set.
+     *
+     * @param position Position of the item whose data we want within the adapter's
+     *                 data set.
+     * @return The data at the specified position.
+     */
+    @Override
+    public Object getItem(int position) {
+        return mLocationInfoList.get(position);
+    }
+
+    /**
+     * Get the row id associated with the specified position in the list.
+     *
+     * @param position The position of the item within the adapter's data set whose row id we want.
+     * @return The id of the item at the specified position.
+     */
+    @Override
+    public long getItemId(int position) {
+        return mLocationInfoList.indexOf(mLocationInfoList.get(position));
     }
 
     @Override
-    public LocationInfo getItem(int position) {
-        return super.getItem(position);
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View listItemView = convertView;
-        if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.fragment_list_item, parent, false);
+    public View getView(int position, View view, ViewGroup parent) {
+        ViewHolder holder;
+        if (view != null) {
+            holder = (ViewHolder) view.getTag();
+        } else {
+            view = inflater.inflate(R.layout.fragment_list_item, parent, false);
+            holder = new ViewHolder(view);
+            view.setTag(holder);
         }
 
-        LocationInfo currentLocationInfo = getItem(position);
+        LocationInfo listItem = (LocationInfo) getItem(position);
 
-        TextView caption = listItemView.findViewById(R.id.list_item_caption);
-        caption.setText(currentLocationInfo.getInfoCaption());
+        holder.caption.setText(listItem.getInfoCaption());
+        holder.text.setText(listItem.getInfoText());
 
-        TextView text = listItemView.findViewById(R.id.list_item_text);
-        text.setText(currentLocationInfo.getInfoText());
+        if (listItem.getInfoImageID() != 0) {
+            holder.image.setImageResource(listItem.getInfoImageID());
+            holder.image.setVisibility(View.VISIBLE);
+        }
 
-        ImageView imageView = listItemView.findViewById(R.id.list_item_image);
+        return view;
+    }
 
-        if (currentLocationInfo.getInfoImage() != null)
-            imageView = currentLocationInfo.getInfoImage();
+    static class ViewHolder {
+        @BindView(R.id.list_item_caption)
+        TextView caption;
+        @BindView(R.id.list_item_text)
+        TextView text;
+        @BindView(R.id.list_item_image)
+        ImageView image;
 
-
-        return listItemView;
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }

@@ -15,18 +15,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NeanderthalFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
 
     @BindView(R.id.neanderthal_list)
     ListView listView;
 
     public NeanderthalFragment() {
-        // Required empty public constructor
     }
 
     public static NeanderthalFragment newInstance() {
-        NeanderthalFragment fragment = new NeanderthalFragment();
-        return fragment;
+        return new NeanderthalFragment();
     }
 
     @Override
@@ -38,8 +35,8 @@ public class NeanderthalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_neanderthal, container, false);
-
         ButterKnife.bind(this, view);
+
         listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
 
         return view;
@@ -53,20 +50,18 @@ public class NeanderthalFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
     private ArrayList<LocationInfo> getInfo() {
         ArrayList<LocationInfo> list = new ArrayList<>();
 
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
+        list.add(new LocationInfo("Neandertal as Landscape", "The Neandertal was once a very harsh environment to live in," +
+                " but today it is a very beautiful landscape with many opportunities for activities like walking and hiking.", R.drawable.river_original));
+        list.add(new LocationInfo("The Neanderthal's", "The Neanderthals more rarely known as Neandertals, were archaic humans that became extinct about 40,000 years ago.", R.drawable.homo_sapiens));
 
         return list;
     }

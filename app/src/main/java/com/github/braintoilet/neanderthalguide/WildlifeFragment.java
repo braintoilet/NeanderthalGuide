@@ -16,18 +16,14 @@ import butterknife.ButterKnife;
 
 public class WildlifeFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-
     @BindView(R.id.wildlife_list)
     ListView listView;
 
     public WildlifeFragment() {
-        // Required empty public constructor
     }
 
     public static WildlifeFragment newInstance() {
-        WildlifeFragment fragment = new WildlifeFragment();
-        return fragment;
+        return new WildlifeFragment();
     }
 
     @Override
@@ -39,8 +35,8 @@ public class WildlifeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wildlife, container, false);
-
         ButterKnife.bind(this, view);
+
         listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
 
         return view;
@@ -54,20 +50,18 @@ public class WildlifeFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
     private ArrayList<LocationInfo> getInfo() {
         ArrayList<LocationInfo> list = new ArrayList<>();
 
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
+        list.add(new LocationInfo("Wildlife Reserve", "Another great place to visit is the wildlife reserve not far from the museum. " +
+                "There are many animals including bisons, tarpans and except bullocks.", R.drawable.wildlife));
+        list.add(new LocationInfo("Map", "The reserve is very easy to find by foot.", R.drawable.wildlife_map));
 
         return list;
     }

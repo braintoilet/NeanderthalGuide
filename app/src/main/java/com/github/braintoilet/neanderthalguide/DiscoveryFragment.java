@@ -15,18 +15,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DiscoveryFragment extends Fragment {
-    private OnFragmentInteractionListener mListener;
 
     @BindView(R.id.discovery_list)
     ListView listView;
 
     public DiscoveryFragment() {
-        // Required empty public constructor
     }
 
     public static DiscoveryFragment newInstance() {
-        DiscoveryFragment fragment = new DiscoveryFragment();
-        return fragment;
+        return new DiscoveryFragment();
     }
 
     @Override
@@ -38,8 +35,8 @@ public class DiscoveryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discovery, container, false);
-
         ButterKnife.bind(this, view);
+
         listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
 
         return view;
@@ -53,20 +50,18 @@ public class DiscoveryFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
     private ArrayList<LocationInfo> getInfo() {
         ArrayList<LocationInfo> list = new ArrayList<>();
 
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
-        list.add(new LocationInfo("", ""));
+        list.add(new LocationInfo("Discovery Site", "The \"Feldhoffer Grotte\", where the remainings of the Neanderthal were found in 1865, " +
+                "got destroyed by quarrying. After new Excavations in 1997 and 2000, the worldfamous place of discovery got rebuilt in a park like fashion.", R.drawable.discovery));
+        list.add(new LocationInfo("Map", "The discovery site can easily be found near the museum.", R.drawable.discovery_map));
 
         return list;
     }

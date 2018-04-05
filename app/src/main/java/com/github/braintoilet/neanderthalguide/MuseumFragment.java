@@ -16,18 +16,14 @@ import butterknife.ButterKnife;
 
 public class MuseumFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-
     @BindView(R.id.museum_list)
     ListView listView;
 
     public MuseumFragment() {
-        // Required empty public constructor
     }
 
     public static MuseumFragment newInstance() {
-        MuseumFragment fragment = new MuseumFragment();
-        return fragment;
+        return new MuseumFragment();
     }
 
     @Override
@@ -39,8 +35,8 @@ public class MuseumFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_museum, container, false);
-
         ButterKnife.bind(this, view);
+
         listView.setAdapter(new LocationInfoAdapter(getContext(), getInfo()));
 
         return view;
@@ -54,11 +50,9 @@ public class MuseumFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
@@ -67,11 +61,13 @@ public class MuseumFragment extends Fragment {
 
         list.add(new LocationInfo("Traces of humanity",
                 "The exhibition shows the traces of humanity, from their long way from the savannas, " +
-                "to the capital cities of the present."));
-        list.add(new LocationInfo("Neanderthal's", "The main emphasis lies on the neanderthals. \n" +
-                "Neanderthals are considered either a distinct species, Homo neanderthalensis, or more rarely a subspecies of Homo sapiens (H. s. neanderthalensis).\n" +
-                " A 2010 report found that non-Africans and Neanderthals share 99.7% of their DNA and are hence " +
-                "much more closely related than to their closest non-human relative, the chimpanzee (98.8%)."));
+                        "to the capital cities of the present. The main emphasis lies on the neanderthals.", R.drawable.museum_inside));
+        list.add(new LocationInfo("Opening Hours", "Tuesday till Sunday\nfrom 10.00AM to 18.00PM"));
+        list.add(new LocationInfo("Contact", "Tel: 0049 2104 97970\n" +
+                "Fax: 0049 2104 979796"));
+        list.add(new LocationInfo("Adress", "Neanderthal Museum\n" +
+                "Talstr. 300\n" +
+                "40822 Mettmann", R.drawable.map));
         return list;
     }
 }

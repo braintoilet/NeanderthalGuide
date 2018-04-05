@@ -6,21 +6,20 @@ import android.widget.ImageView;
 import butterknife.BindView;
 
 public class LocationInfo {
-    String infoCaption;
-    String infoText;
-    ImageView infoImage;
+    private String infoCaption;
+    private String infoText;
+    private int infoImageID;
 
     public LocationInfo(String caption, String info) {
         infoCaption = caption;
         infoText = info;
-        infoImage = null;
+        infoImageID = 0;
     }
 
     public LocationInfo(String caption, String info, int ImageID) {
         infoCaption = caption;
         infoText = info;
-        infoImage.setVisibility(View.VISIBLE);
-        infoImage.setImageResource(ImageID);
+        infoImageID = ImageID;
     }
 
     public String getInfoCaption() {
@@ -31,7 +30,9 @@ public class LocationInfo {
         return infoText;
     }
 
-    public ImageView getInfoImage() {
-        return infoImage;
+    public int getInfoImageID() {
+        return infoImageID;
     }
 }
+
+
