@@ -1,4 +1,37 @@
 <resources>
     <string name="app_name">Neanderthal Guide</string>
     <string name="long_dummytext">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+
+    <string name="museum_info1_caption">Traces of humanity</string>
+    <string name="museum_info1">
+        The exhibition shows the traces of humanity, from their long way from the savannas,
+        to the capital cities of the present. The main emphasis lies on the neanderthals.
+    </string>
+
+    <string name="museum_info2_caption">Opening Hours</string>
+    <string name="museum_info2">Tuesday till Sunday\nfrom 10.00AM to 18.00PM</string>
+
+    <string name="museum_info3_caption">Contact</string>
+    <string name="museum_info3">"Tel: 0049 2104 97970\nFax: 0049 2104 979796</string>
+
+    <string name="museum_info4_caption">Adress</string>
+    <string name="museum_info4">Neanderthal Museum\nTalstr. 300\n40822 Mettmann</string>
+
+    <string name="wildlife_info1_caption">Wildlife Reserve</string>
+    <string name="wildlife_info1">Another great place to visit is the wildlife reserve not far from the museum. There are many animals including bisons, tarpans and except bullocks.</string>
+
+    <string name="wildlife_info2_caption">Map</string>
+    <string name="wildlife_info2">The reserve is very easy to find by foot.</string>
+
+    <string name="neanderthal_info1_caption">Neandertal as Landscape</string>
+    <string name="neanderthal_info1">The Neandertal was once a very harsh environment to live in, but today it is a very beautiful landscape with many opportunities for activities like walking and hiking.</string>
+
+    <string name="neanderthal_info2_caption">The Neanderthals</string>
+    <string name="neanderthal_info2">The Neanderthals more rarely known as Neandertals, were archaic humans that became extinct about 40,000 years ago.</string>
+
+    <string name="discovery_info1_caption">Discovery Site</string>
+    <string name="discovery_info1">"The \"Feldhoffer Grotte\", where the remainings of the Neanderthal were found in 1865, got destroyed by quarrying. After new Excavations in 1997 and 2000, the worldfamous place of discovery got rebuilt in a park like fashion.</string>
+
+    <string name="discovery_info2_caption">Map</string>
+    <string name="discovery_info2">The discovery site can easily be found near the museum.</string>
 </resources>

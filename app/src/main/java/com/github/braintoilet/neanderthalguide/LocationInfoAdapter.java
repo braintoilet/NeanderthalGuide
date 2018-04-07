@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 
 public class LocationInfoAdapter extends BaseAdapter {
     private final LayoutInflater inflater;
-    ArrayList<LocationInfo> mLocationInfoList;
+    private ArrayList<LocationInfo> mLocationInfoList;
 
     public LocationInfoAdapter(Context context, ArrayList<LocationInfo> list) {
         this.inflater = LayoutInflater.from(context);

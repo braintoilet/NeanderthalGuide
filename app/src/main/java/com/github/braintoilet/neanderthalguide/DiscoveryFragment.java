@@ -27,11 +27,6 @@ public class DiscoveryFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discovery, container, false);
@@ -42,26 +37,10 @@ public class DiscoveryFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
-
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
-
     private ArrayList<LocationInfo> getInfo() {
         ArrayList<LocationInfo> list = new ArrayList<>();
-
-        list.add(new LocationInfo("Discovery Site", "The \"Feldhoffer Grotte\", where the remainings of the Neanderthal were found in 1865, " +
-                "got destroyed by quarrying. After new Excavations in 1997 and 2000, the worldfamous place of discovery got rebuilt in a park like fashion.", R.drawable.discovery));
-        list.add(new LocationInfo("Map", "The discovery site can easily be found near the museum.", R.drawable.discovery_map));
+        list.add(new LocationInfo(getString(R.string.discovery_info1_caption), getString(R.string.discovery_info1), R.drawable.discovery));
+        list.add(new LocationInfo(getString(R.string.discovery_info2_caption), getString(R.string.discovery_info2), R.drawable.discovery_map));
 
         return list;
     }
